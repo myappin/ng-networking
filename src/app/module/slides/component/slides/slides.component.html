@@ -16,3 +16,6 @@
 <div class="next">
   <button class="btn" (click)="onNext()">Next</button>
 </div>
+<ng-container *ngFor="let slide of slides; let i = index; trackBy: trackSlide">
+  <img class="preload" [src]="'assets/slide' + i + '.png'" alt="{{slide.name}}">
+</ng-container>

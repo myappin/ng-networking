@@ -1,9 +1,11 @@
-.red {
-  color: red;
-  font-size: 20px;
+.green {
+  background-color: #8dc63f;
+  font-size: 12px;
+  padding: 2px;
 }
 
-.green {
-  color: green;
-  font-size: 20px;
+.red {
+  background-color: #FF64A3;
+  font-size: 12px;
+  padding: 2px;
 }
