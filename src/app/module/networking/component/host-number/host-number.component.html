@@ -1,4 +1,11 @@
-<span>Actually here: <strong>{{usersNum}}</strong>
+<span>Actually
+  <ng-container *ngIf="usersNum === 1">
+    is
+  </ng-container>
+  <ng-container *ngIf="usersNum !== 1">
+    are
+  </ng-container>
+  here: <strong>{{usersNum}}</strong>
   <ng-container *ngIf="usersNum === 1">
     networker
   </ng-container>

@@ -24,8 +24,10 @@ nav {
 .btn_green {
   background: #8dc63f no-repeat;
   color: white;
+  cursor: pointer;
 }
 .btn_pink {
   background: #FF64A3 no-repeat;
   color: white;
+  cursor: pointer;
 }
