@@ -11,6 +11,8 @@ export class NetworkersComponent implements OnDestroy {
 
   public networkers: INetworker[] = [];
 
+  public newShown = false;
+
   private _subscriptions: any = [];
 
   public constructor (private _socketIO: SocketIoService) {
@@ -39,6 +41,7 @@ export class NetworkersComponent implements OnDestroy {
     this._socketIO.connect().then((socket: any) => {
       socket.emit("insert", networker);
     });
+    this.newShown = false;
   }
 
   public trackByNetworker (index): boolean {

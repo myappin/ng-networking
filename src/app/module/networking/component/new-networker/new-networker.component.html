@@ -25,6 +25,9 @@
           <input type="text" class="form-control" id="offer" formControlName="offer">
         </div>
 
-        <button type="submit" [disabled]="!networkingForm.valid">Register</button>
+        <button class="btn btn_green" type="submit" [disabled]="!networkingForm.valid">Register</button>
+        <button class="btn btn_pink" type="submit"
+                *ngIf="!networkingForm.valid"
+                (click)="onReject()">Back</button>
   </form>
 </div>

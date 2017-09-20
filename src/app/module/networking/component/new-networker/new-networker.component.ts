@@ -14,6 +14,9 @@ export class NewNetworkerComponent implements OnInit {
   @Output()
   public onNew = new EventEmitter<INetworker>();
 
+  @Output()
+  public onBack = new EventEmitter();
+
   public constructor (private _formBuilder: FormBuilder) {
   }
 
@@ -48,6 +51,10 @@ export class NewNetworkerComponent implements OnInit {
   public onSubmit (): void {
     this.onNew.emit(this.networkingForm.value);
     this.networkingForm.reset();
+  }
+
+  public onReject (): void {
+    this.onBack.emit();
   }
 
 }

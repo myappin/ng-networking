@@ -1,7 +1,14 @@
 <app-new-networker
-  (onNew)="addNetworker($event)">
+  *ngIf="newShown"
+  (onNew)="addNetworker($event)"
+  (onBack)="newShown = false">
 </app-new-networker>
-<table>
+
+<button class="btn btn-green"
+        *ngIf="!newShown"
+        (click)="newShown = true">I am a networker!</button>
+
+<table class="table networkerList">
   <thead>
     <tr>
       <th>

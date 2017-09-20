@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,300&subset=latin-ext');
+
 body {
   background-color: black;
+  font-family: "Roboto", sans-serif;
 }
 nav {
   background: #1dc0f2 url('https://www.aputime.com/img/cut_-25.svg') 50% 50% no-repeat;
@@ -16,4 +19,13 @@ nav {
   background-size: cover;
   color: white;
   z-index: 1000;
+}
+
+.btn_green {
+  background: #8dc63f no-repeat;
+  color: white;
+}
+.btn_pink {
+  background: #FF64A3 no-repeat;
+  color: white;
 }
