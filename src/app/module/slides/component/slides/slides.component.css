@@ -1,0 +1,32 @@
+.prev {
+  position: absolute;
+  left: 8px;
+}
+
+.next {
+  position: absolute;
+  right: 8px;
+}
+
+.prev .btn, .next .btn {
+  margin-top: 8px;
+  background: #8dc63f no-repeat;
+  color: white;
+}
+.prev .btn:hover, .next .btn:hover {
+  font-size: 18px;
+}
+
+.slides {
+  width: 100%;
+}
+
+.sliding {
+  position: absolute;
+  width: calc(100% - 44px);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+}

@@ -1,0 +1,19 @@
+body {
+  background-color: black;
+}
+nav {
+  background: #1dc0f2 url('https://www.aputime.com/img/cut_-25.svg') 50% 50% no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.networkers {
+  position: absolute;
+  padding: 20px 5px 5px 5px;
+  height: calc(100% - 61px);
+  overflow-y: scroll;
+  background: #1dc0f2 url('https://www.aputime.com/img/cut_-25.svg') 50% 50% no-repeat;
+  background-size: cover;
+  color: white;
+  z-index: 1000;
+}

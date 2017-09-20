@@ -1,0 +1,17 @@
+table {
+  border-style: solid;
+  border-spacing: 0;
+  border-width: 1px;
+
+}
+table tr {
+  margin: 0;
+  border-spacing: 0;
+  border-width: 1px;
+}
+table td, table th {
+  border-style: solid;
+  border-spacing: 0;
+  border-width: 1px;
+  margin: 0;
+}

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md">
+  <a class="navbar-brand" href="https://www.aputime.com">
+    <img src="https://www.aputime.com/img/cut_-18.svg?v=1505894773" width="143" alt="ApuTime">
+  </a>
+
+  <div id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+          <span class="link nav-link"
+                (click)="toggleNetworkers()">
+            Networking
+          </span>
+      </li>
+      <li class="nav-item active">
+          <app-host-number class="nav-link"></app-host-number>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container networkers"
+     [@active]
+     *ngIf="networkersShown">
+    <app-networkers></app-networkers>
+</div>
+
+<div class="container-fluid slides">
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

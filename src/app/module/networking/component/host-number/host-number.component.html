@@ -1,0 +1,11 @@
+<span>Actually here: <strong>{{usersNum}}</strong>
+  <ng-container *ngIf="usersNum === 1">
+    networker
+  </ng-container>
+  <ng-container *ngIf="usersNum !== 1">
+    networkers
+  </ng-container>
+  because you are
+  <app-status [status]="status"></app-status>
+  Number of connections: {{totalConnections}}
+</span>
