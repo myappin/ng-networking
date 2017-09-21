@@ -1,6 +1,5 @@
 <div [@active]="movement ? movement : null"
-    class="slides"
-    (@active.done)="animationDone($event)">
+    class="slides">
   <ng-container *ngFor="let slide of slides; let i = index; trackBy: trackSlide">
     <div class="sliding"
          *ngIf="i === currentSlide">
