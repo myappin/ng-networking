@@ -14,6 +14,8 @@ import { NetworkingModule } from "./module/networking/networking.module";
 
 import { SlidesModule } from "./module/slides/slides.module";
 
+import { APP_BASE_HREF } from "@angular/common";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +29,7 @@ import { SlidesModule } from "./module/slides/slides.module";
     NetworkingModule,
     SlidesModule,
   ],
-  providers: [
-  ],
+  providers: [{provide: APP_BASE_HREF, useValue: "/"}],
   bootstrap: [AppComponent],
 })
 export class AppModule {

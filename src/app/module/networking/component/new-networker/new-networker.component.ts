@@ -17,43 +17,50 @@ export class NewNetworkerComponent implements OnInit {
   @Output()
   public onBack = new EventEmitter();
 
-  public constructor (private _formBuilder: FormBuilder) {
+  public constructor(private _formBuilder: FormBuilder) {
   }
 
-  public ngOnInit (): void {
+  public ngOnInit(): void {
     this.networkingForm = this._formBuilder.group({
       "firstName": [
         "", Validators.compose([
           Validators.required,
+          Validators.maxLength(50),
         ]),
       ],
       "lastName": [
         "", Validators.compose([
           Validators.required,
+          Validators.maxLength(50),
         ]),
       ],
       "email": [
         "", Validators.compose([
           Validators.required,
           Validators.email,
+          Validators.maxLength(100),
         ]),
       ],
       "want": [
-        "",
+        "", Validators.compose([
+          Validators.maxLength(100),
+        ]),
       ],
       "offer": [
-        "",
+        "", Validators.compose([
+          Validators.maxLength(100),
+        ]),
       ],
     })
     ;
   }
 
-  public onSubmit (): void {
+  public onSubmit(): void {
     this.onNew.emit(this.networkingForm.value);
     this.networkingForm.reset();
   }
 
-  public onReject (): void {
+  public onReject(): void {
     this.onBack.emit();
   }
 

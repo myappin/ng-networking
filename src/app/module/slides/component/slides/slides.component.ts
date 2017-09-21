@@ -4,7 +4,12 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { trigger, transition, useAnimation } from "@angular/animations";
 
 import { slidesAnimationBackward, slidesAnimationForward } from "../../slides.animation";
-import { lightSpeedInFromLeft, lightSpeedInFromRight, lightSpeedOutToLeft, lightSpeedOutToRight } from "../../navigation.animation";
+import {
+  lightSpeedInFromLeft,
+  lightSpeedInFromRight,
+  lightSpeedOutToLeft,
+  lightSpeedOutToRight,
+} from "../../navigation.animation";
 
 @Component({
   selector: "app-slides",
@@ -49,7 +54,7 @@ export class SlidesComponent implements OnDestroy {
 
   private _subscriptions: any = [];
 
-  public constructor (
+  public constructor(
     private _changeDetector: ChangeDetectorRef,
     private _router: Router,
     private _route: ActivatedRoute
@@ -87,19 +92,19 @@ export class SlidesComponent implements OnDestroy {
     };
   }
 
-  public ngOnDestroy (): void {
+  public ngOnDestroy(): void {
     for (const i of this._subscriptions) {
       i.unsubscribe();
     }
   }
 
-  public animationDone(e:any): void {
-    this.movement = null
+  public animationDone(e: any): void {
+    this.movement = null;
 
     this._changeDetector.markForCheck();
 }
 
-  public onNext (): void {
+  public onNext(): void {
     if (this.movement !== null) {
       return;
     }
@@ -115,7 +120,7 @@ export class SlidesComponent implements OnDestroy {
     this._setMovement();
   }
 
-  public onPrev (): void {
+  public onPrev(): void {
     if (this.movement !== null) {
       return;
     }
@@ -131,11 +136,11 @@ export class SlidesComponent implements OnDestroy {
     this._setMovement();
   }
 
-  public trackSlide (index): boolean {
+  public trackSlide(index): boolean {
     return index;
   }
 
-  private _setMovement (): void {
+  private _setMovement(): void {
     this.movement = (this.previousSlide > this.currentSlide) ? "backward" : "forward";
 
     this._changeDetector.detectChanges();
