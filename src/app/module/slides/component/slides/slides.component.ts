@@ -43,7 +43,6 @@ import {
   ],
 })
 export class SlidesComponent implements OnDestroy {
-
   public slides = slides;
 
   public currentSlide = 0;
