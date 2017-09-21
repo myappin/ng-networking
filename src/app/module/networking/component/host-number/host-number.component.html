@@ -1,18 +1,19 @@
-<span>Actually
+<span>Currently, there
   <ng-container *ngIf="usersNum === 1">
     is
   </ng-container>
   <ng-container *ngIf="usersNum !== 1">
     are
   </ng-container>
-  here: <strong>{{usersNum}}</strong>
+  <strong>{{usersNum}}</strong>
   <ng-container *ngIf="usersNum === 1">
-    networker.
+    networker
   </ng-container>
   <ng-container *ngIf="usersNum !== 1">
-    networkers.
+    networkers
   </ng-container>
+  here.
   You are
-  <app-status [status]="status"></app-status>.
+  <app-status [status]="status"></app-status>
   Connections: <strong>{{totalConnections}}</strong>
 </span>

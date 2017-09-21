@@ -1,40 +1,64 @@
-import { Component, OnDestroy } from "@angular/core";
+import { ChangeDetectorRef, Component, OnDestroy } from "@angular/core";
 import { slides } from "./slides.mock";
 import { Router, ActivatedRoute } from "@angular/router";
-import { trigger, style, animate, transition } from "@angular/animations";
+import { trigger, transition, useAnimation } from "@angular/animations";
+
+import { slidesAnimationBackward, slidesAnimationForward } from "../../slides.animation";
+import { slideInFromLeft, slideInFromRight, slideOutToLeft, slideOutToRight } from "../../navigation.animation";
 
 @Component({
   selector: "app-slides",
   templateUrl: "./slides.component.html",
   styleUrls: ["./slides.component.css"],
   animations: [
-    trigger(
-      "active", [
-        transition(":enter", [
-          style({transform: "translateX(-10%)", opacity: 0}),
-          animate("500ms ease-in-out", style({transform: "translateX(0)", opacity: 1})),
-        ]),
-        transition(":leave", [
-          style({transform: "translateX(0)", opacity: 1}),
-          animate("500ms ease-in-out", style({transform: "translateX(-10%)", opacity: 0})),
-        ]),
+    trigger("active", [
+      transition("* => backward", [
+        useAnimation(slidesAnimationBackward)
       ]),
+      transition("* => forward", [
+        useAnimation(slidesAnimationForward)
+      ]),
+    ]),
+    trigger("slideFromLeft", [
+      transition(":enter", [
+        useAnimation(slideInFromLeft),
+      ]),
+      transition(":leave", [
+        useAnimation(slideOutToLeft),
+      ]),
+    ]),
+    trigger("slideFromRight", [
+      transition(":enter", [
+        useAnimation(slideInFromRight),
+      ]),
+      transition(":leave", [
+        useAnimation(slideOutToRight),
+      ]),
+    ]),
   ],
 })
 export class SlidesComponent implements OnDestroy {
 
   public slides = slides;
 
-  public actualSlide = 0;
+  public currentSlide = 0;
+
+  public previousSlide = -1;
+
+  public movement: "forward" | "backward" = null;
 
   private _subscriptions: any = [];
 
-  public constructor (private _router: Router, _route: ActivatedRoute) {
+  public constructor (
+    private _changeDetector: ChangeDetectorRef,
+    private _router: Router,
+    private _route: ActivatedRoute
+  ) {
     this._subscriptions.push(_route.params.subscribe((params: any) => {
       if (!params["num"]) {
         this._router.navigate(["/slides", 1]);
       } else {
-        this.actualSlide = params["num"] - 1;
+        this.currentSlide = params["num"] - 1;
       }
     }));
 
@@ -69,24 +93,51 @@ export class SlidesComponent implements OnDestroy {
     }
   }
 
+  public animationDone(e:any): void {
+    this.movement = null
+
+    this._changeDetector.markForCheck();
+}
+
   public onNext (): void {
-    if (++this.actualSlide > this.slides.length - 1) {
-      this.actualSlide = this.slides.length - 1;
-    } else {
-      this._router.navigate(["/slides", this.actualSlide + 1]);
+    if (this.movement !== null) {
+      return;
     }
+
+    this.previousSlide = this.currentSlide;
+
+    if (++this.currentSlide > this.slides.length - 1) {
+      this.currentSlide = this.slides.length - 1;
+    } else {
+      this._router.navigate(["/slides", this.currentSlide + 1]);
+    }
+
+    this._setMovement();
   }
 
   public onPrev (): void {
-    if (--this.actualSlide < 0) {
-      this.actualSlide = 0;
-    } else {
-      this._router.navigate(["/slides", this.actualSlide + 1]);
+    if (this.movement !== null) {
+      return;
     }
+
+    this.previousSlide = this.currentSlide;
+
+    if (--this.currentSlide < 0) {
+      this.currentSlide = 0;
+    } else {
+      this._router.navigate(["/slides", this.currentSlide + 1]);
+    }
+
+    this._setMovement();
   }
 
   public trackSlide (index): boolean {
     return index;
   }
 
+  private _setMovement (): void {
+    this.movement = (this.previousSlide > this.currentSlide) ? "backward" : "forward";
+
+    this._changeDetector.detectChanges();
+  }
 }

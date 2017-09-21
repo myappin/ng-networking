@@ -1,11 +1,11 @@
+.btn {
+  font-size: 12px;
+  padding: .17rem .25rem;
+}
 .green {
   background-color: #8dc63f;
-  font-size: 12px;
-  padding: 2px;
 }
 
 .red {
   background-color: #FF64A3;
-  font-size: 12px;
-  padding: 2px;
 }
