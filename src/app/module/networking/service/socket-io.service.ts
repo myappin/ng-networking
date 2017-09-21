@@ -11,7 +11,7 @@ export class SocketIoService {
 
   private _io: any;
 
-  public constructor () {
+  public constructor() {
     this._onGoingPromise = new Promise((resolve, reject) => {
       this._io = SIO("http://webexpo.aputime.com");
       this._io.on("connect", () => {
@@ -27,7 +27,7 @@ export class SocketIoService {
     });
   }
 
-  public connect (): Promise<any> {
+  public connect(): Promise<any> {
     return new Promise((resolve, reject) => {
       if (this._onGoingPromise) {
         this._onGoingPromise.then((socket: any) => {

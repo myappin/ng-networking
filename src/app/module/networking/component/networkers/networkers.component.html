@@ -1,40 +1,46 @@
-<app-new-networker
-  *ngIf="newShown"
-  (onNew)="addNetworker($event)"
-  (onBack)="newShown = false">
-</app-new-networker>
+<div [@active] class="container networkers"
+     *ngIf="shown"
+>
+  <div [@activeNew]
+    *ngIf="newShown">
+      <app-new-networker
+        (onNew)="addNetworker($event)"
+        (onBack)="newShown = false">
+    </app-new-networker>
+  </div>
 
-<button class="btn btn_green"
-        *ngIf="!newShown"
-        (click)="newShown = true">I am a networker!</button>
+  <button class="btn btn_green"
+          *ngIf="!newShown"
+          (click)="newShown = true">I am a networker!</button>
 
-<table class="table networkerList">
-  <thead>
-    <tr>
-      <th>
-        FirsName
-      </th>
-      <th>
-        LastName
-      </th>
-      <th>
-        Email
-      </th>
-      <th>
-        Want
-      </th>
-      <th>
-        Offer
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let networker of networkers; trackBy: trackByNetworker">
-      <td>{{networker.firstName}}</td>
-      <td>{{networker.lastName}}</td>
-      <td>{{networker.email}}</td>
-      <td>{{networker.want}}</td>
-      <td>{{networker.offer}}</td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table networkerList">
+    <thead>
+      <tr>
+        <th>
+          FirsName
+        </th>
+        <th>
+          LastName
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Want
+        </th>
+        <th>
+          Offer
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let networker of networkers; trackBy: trackByNetworker">
+        <td>{{networker.firstName}}</td>
+        <td>{{networker.lastName}}</td>
+        <td>{{networker.email}}</td>
+        <td>{{networker.want}}</td>
+        <td>{{networker.offer}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
