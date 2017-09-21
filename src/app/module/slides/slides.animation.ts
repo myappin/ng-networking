@@ -8,7 +8,7 @@
 import { animate, animation, group, query, style } from "@angular/animations";
 
 const defaultParams = {
-  enterDuration: "600ms",
+  enterDuration: "800ms",
   enterTiming: "ease-out",
   leaveDuration: "300ms",
   leaveTiming: "ease-in",
