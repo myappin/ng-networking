@@ -25,24 +25,31 @@ export class NewNetworkerComponent implements OnInit {
       "firstName": [
         "", Validators.compose([
           Validators.required,
+          Validators.maxLength(50),
         ]),
       ],
       "lastName": [
         "", Validators.compose([
           Validators.required,
+          Validators.maxLength(50),
         ]),
       ],
       "email": [
         "", Validators.compose([
           Validators.required,
           Validators.email,
+          Validators.maxLength(100),
         ]),
       ],
       "want": [
-        "",
+        "", Validators.compose([
+          Validators.maxLength(100),
+        ]),
       ],
       "offer": [
-        "",
+        "", Validators.compose([
+          Validators.maxLength(100),
+        ]),
       ],
     })
     ;

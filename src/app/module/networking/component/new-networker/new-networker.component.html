@@ -18,11 +18,13 @@
         <div class="form-group">
           <label for="want">What you are looking for</label>
           <input type="text" class="form-control" id="want" formControlName="want">
+          <i>remaining {{100 - networkingForm.get("want").value.length}}</i>
         </div>
 
         <div class="form-group">
           <label for="offer">What do you offer</label>
           <input type="text" class="form-control" id="offer" formControlName="offer">
+          <i>remaining {{100 - networkingForm.get("offer").value.length}}</i>
         </div>
 
         <button class="btn btn_green" type="submit" [disabled]="!networkingForm.valid">Register</button>
