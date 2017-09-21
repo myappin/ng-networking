@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { trigger, transition, useAnimation } from "@angular/animations";
 
 import { slidesAnimationBackward, slidesAnimationForward } from "../../slides.animation";
-import { slideInFromLeft, slideInFromRight, slideOutToLeft, slideOutToRight } from "../../navigation.animation";
+import { lightSpeedInFromLeft, lightSpeedInFromRight, lightSpeedOutToLeft, lightSpeedOutToRight } from "../../navigation.animation";
 
 @Component({
   selector: "app-slides",
@@ -21,18 +21,18 @@ import { slideInFromLeft, slideInFromRight, slideOutToLeft, slideOutToRight } fr
     ]),
     trigger("slideFromLeft", [
       transition(":enter", [
-        useAnimation(slideInFromLeft),
+        useAnimation(lightSpeedInFromLeft),
       ]),
       transition(":leave", [
-        useAnimation(slideOutToLeft),
+        useAnimation(lightSpeedOutToLeft),
       ]),
     ]),
     trigger("slideFromRight", [
       transition(":enter", [
-        useAnimation(slideInFromRight),
+        useAnimation(lightSpeedInFromRight),
       ]),
       transition(":leave", [
-        useAnimation(slideOutToRight),
+        useAnimation(lightSpeedOutToRight),
       ]),
     ]),
   ],

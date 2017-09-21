@@ -13,19 +13,17 @@ const defaultParams = {
   leaveDuration: "233ms",
   leaveTiming: "ease-in",
   movementXaxis: "100%",
-  movementYaxis: "0",
-  movementZaxis: "233px",
-  perspective: "144px",
+  skew: "30deg",
 };
 
-export const slideInFromLeft = animation([
+export const lightSpeedInFromLeft = animation([
   style({
-    transform: "perspective({{perspective}}) translate3d(-{{movementXaxis}}, -{{movementYaxis}}, -{{movementZaxis}})",
+    transform: "translateX(-{{movementXaxis}}) skew(-{{skew}})",
     opacity: 0
   }),
   animate("{{enterDuration}} {{enterTiming}}",
     style({
-      transform: "translate(0, 0)",
+      transform: "translateX(0) skew(0)",
       opacity: 1
     })
   ),
@@ -33,14 +31,14 @@ export const slideInFromLeft = animation([
   params: defaultParams,
 });
 
-export const slideOutToLeft = animation([
+export const lightSpeedOutToLeft = animation([
   style({
-    transform: "perspective({{perspective}}) translate3d(0, 0, -{{movementZaxis}})",
+    transform: "translateX(0) skew(0)",
     opacity: 1
   }),
   animate("{{leaveDuration}} {{leaveTiming}}",
     style({
-      transform: "translate(-{{movementXaxis}}, -{{movementYaxis}})",
+      transform: "translateX(-{{movementXaxis}}) skew({{skew}})",
       opacity: 0
     })
   ),
@@ -48,14 +46,14 @@ export const slideOutToLeft = animation([
   params: defaultParams,
 });
 
-export const slideInFromRight = animation([
+export const lightSpeedInFromRight = animation([
   style({
-    transform: "perspective({{perspective}}) translate3d({{movementXaxis}}, -{{movementYaxis}}, -{{movementZaxis}})",
+    transform: "translateX({{movementXaxis}}) skew({{skew}})",
     opacity: 0
   }),
   animate("{{enterDuration}} {{enterTiming}}",
     style({
-      transform: "translate(0, 0)",
+      transform: "translateX(0)",
       opacity: 1
     })
   ),
@@ -63,14 +61,14 @@ export const slideInFromRight = animation([
   params: defaultParams,
 });
 
-export const slideOutToRight = animation([
+export const lightSpeedOutToRight = animation([
   style({
-    transform: "perspective({{perspective}}) translate3d(0, 0, -{{movementZaxis}})",
+    transform: "translateX(0) skew(0)",
     opacity: 1
   }),
   animate("{{leaveDuration}} {{leaveTiming}}",
     style({
-      transform: "translate({{movementXaxis}}, -{{movementYaxis}})",
+      transform: "translateX({{movementXaxis}}) skew(-{{skew}})",
       opacity: 0
     })
   ),
