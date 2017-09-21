@@ -19,6 +19,17 @@ import { trigger, transition, style, animate } from "@angular/animations";
           animate("500ms ease-in-out", style({transform: "translateX(-100%)", opacity: 0.5})),
         ]),
       ]),
+    trigger(
+      "activeNew", [
+        transition(":enter", [
+          style({transform: "scale(0)", opacity: 0}),
+          animate("300ms ease-in-out", style({transform: "scale(1)", opacity: 1})),
+        ]),
+        transition(":leave", [
+          style({transform: "scale(1)", display: "block"}),
+          animate("300ms ease-in-out", style({transform: "scale(0)", opacity: 0})),
+        ]),
+      ]),
   ],
 })
 export class NetworkersComponent implements OnDestroy {

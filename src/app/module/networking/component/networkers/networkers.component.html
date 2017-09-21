@@ -1,11 +1,13 @@
 <div [@active] class="container networkers"
      *ngIf="shown"
 >
-  <app-new-networker
-    *ngIf="newShown"
-    (onNew)="addNetworker($event)"
-    (onBack)="newShown = false">
-  </app-new-networker>
+  <div [@activeNew]
+    *ngIf="newShown">
+      <app-new-networker
+        (onNew)="addNetworker($event)"
+        (onBack)="newShown = false">
+    </app-new-networker>
+  </div>
 
   <button class="btn btn_green"
           *ngIf="!newShown"

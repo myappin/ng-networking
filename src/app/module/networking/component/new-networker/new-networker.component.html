@@ -26,7 +26,7 @@
         </div>
 
         <button class="btn btn_green" type="submit" [disabled]="!networkingForm.valid">Register</button>
-        <button class="btn btn_pink" type="submit"
+        <button class="btn btn_pink" type="button"
                 *ngIf="!networkingForm.valid"
                 (click)="onReject()">Back</button>
   </form>
