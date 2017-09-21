@@ -21,7 +21,6 @@ io.on('connect', function (socket) {
     for (var i = 0, max = users.length; i < max; i++) {
       if (users[i].email === data.email) {
         found = true;
-        users[i] = data;
         break;
       }
     }
