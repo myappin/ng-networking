@@ -17,10 +17,10 @@ export class NewNetworkerComponent implements OnInit {
   @Output()
   public onBack = new EventEmitter();
 
-  public constructor (private _formBuilder: FormBuilder) {
+  public constructor(private _formBuilder: FormBuilder) {
   }
 
-  public ngOnInit (): void {
+  public ngOnInit(): void {
     this.networkingForm = this._formBuilder.group({
       "firstName": [
         "", Validators.compose([
@@ -48,12 +48,12 @@ export class NewNetworkerComponent implements OnInit {
     ;
   }
 
-  public onSubmit (): void {
+  public onSubmit(): void {
     this.onNew.emit(this.networkingForm.value);
     this.networkingForm.reset();
   }
 
-  public onReject (): void {
+  public onReject(): void {
     this.onBack.emit();
   }
 

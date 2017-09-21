@@ -14,7 +14,7 @@ export class SlideComponent {
   @Input()
   public index: number;
 
-  constructor () {
+  public constructor() {
   }
 
 }

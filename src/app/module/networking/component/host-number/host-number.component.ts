@@ -16,7 +16,7 @@ export class HostNumberComponent implements OnDestroy {
 
   private _subscriptions: any = [];
 
-  public constructor (private _socketIO: SocketIoService) {
+  public constructor(private _socketIO: SocketIoService) {
     this._socketIO.connect().then((socket: any) => {
       this.status = true;
       socket.on("users", (num: any) => {
@@ -35,7 +35,7 @@ export class HostNumberComponent implements OnDestroy {
     });
   }
 
-  public ngOnDestroy (): void {
+  public ngOnDestroy(): void {
     for (const i of this._subscriptions) {
       i.unsubscribe();
     }
