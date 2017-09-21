@@ -1,8 +1,9 @@
-<div class="slides">
+<div [@active]="movement ? movement : null"
+    class="slides"
+    (@active.done)="animationDone($event)">
   <ng-container *ngFor="let slide of slides; let i = index; trackBy: trackSlide">
-    <div [@active]
-         class="sliding"
-         *ngIf="i === actualSlide">
+    <div class="sliding"
+         *ngIf="i === currentSlide">
       <app-slide
         [slide]="slide"
         [index]="i+1"
@@ -10,10 +11,14 @@
     </div>
   </ng-container>
 </div>
-<div class="prev">
+<div [@slideFromLeft]
+    class="prev"
+    *ngIf="currentSlide !== 0">
   <button class="btn" (click)="onPrev()">Prev</button>
 </div>
-<div class="next">
+<div [@slideFromRight]
+    class="next"
+    *ngIf="slides && (slides.length - 1) !== currentSlide">
   <button class="btn" (click)="onNext()">Next</button>
 </div>
 <ng-container *ngFor="let slide of slides; let i = index; trackBy: trackSlide">

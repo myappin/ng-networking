@@ -3,6 +3,10 @@
 body {
   background-color: black;
   font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+button {
+  border: 0 none;
 }
 nav {
   background: #1dc0f2 url('https://www.aputime.com/img/cut_-25.svg') 50% 50% no-repeat;
@@ -34,4 +38,7 @@ nav {
   background: #FF64A3 no-repeat;
   color: white;
   cursor: pointer;
+}
+.btn_pink:hover {
+  background: #FF55A3;
 }
