@@ -54,10 +54,18 @@ export class SlidesComponent implements OnDestroy {
     private _route: ActivatedRoute
   ) {
     this._subscriptions.push(_route.params.subscribe((params: any) => {
-      if (!params["num"]) {
+      const slideNumber = parseInt(params.num, 10);
+
+      if (
+        !slideNumber ||
+        isNaN(slideNumber) ||
+        slideNumber < 1
+      ) {
         this._router.navigate(["/slides", 1]);
+      } else if (slideNumber > slides.length) {
+        this._router.navigate(["/slides", slides.length]);
       } else {
-        this.currentSlide = params["num"] - 1;
+        this.currentSlide = slideNumber - 1;
       }
     }));
 
