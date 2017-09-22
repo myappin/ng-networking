@@ -71,9 +71,9 @@ export class SlidesComponent implements OnDestroy {
       evt = evt || window.event;
       let isLeft = false;
       if ("key" in evt) {
-        isLeft = (evt.key === "ArrowLeft");
+        isLeft = (evt.key === "ArrowLeft" || evt.key === "ArrowUp");
       } else {
-        isLeft = (evt.keyCode === 37);
+        isLeft = (evt.keyCode === 37 || evt.keyCode === 38);
       }
       if (isLeft) {
         this.onPrev();
@@ -81,9 +81,9 @@ export class SlidesComponent implements OnDestroy {
       }
       let isRight = false;
       if ("key" in evt) {
-        isRight = (evt.key === "ArrowRight");
+        isRight = (evt.key === "ArrowRight" || evt.key === "ArrowDown");
       } else {
-        isRight = (evt.keyCode === 39);
+        isRight = (evt.keyCode === 39 || evt.keyCode === 40);
       }
       if (isRight) {
         this.onNext();
