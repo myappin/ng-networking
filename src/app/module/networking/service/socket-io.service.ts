@@ -13,7 +13,7 @@ export class SocketIoService {
 
   public constructor() {
     this._onGoingPromise = new Promise((resolve, reject) => {
-      this._io = SIO("http://webexpo.aputime.com");
+      this._io = SIO("/");
       this._io.on("connect", () => {
         this.status.next(true);
         resolve(this._io);
