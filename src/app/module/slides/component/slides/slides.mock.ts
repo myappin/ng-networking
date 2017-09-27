@@ -134,6 +134,36 @@ frameborder="0" allowfullscreen></iframe>
 `,
   },
   {
+    name: "NG/PWA - Slide One",
+    active: false,
+    img: "sw1.png",
+  },
+  {
+    name: "NG/PWA - Slide Two",
+    active: false,
+    img: "sw2.png",
+  },
+  {
+    name: "NG/PWA - Slide Three",
+    active: false,
+    img: "sw3.png",
+  },
+  {
+    name: "NG/PWA - Slide Four",
+    active: false,
+    img: "sw4.png",
+  },
+  {
+    name: "NG/PWA - Slide Five",
+    active: false,
+    img: "sw5.png",
+  },
+  {
+    name: "NG/PWA - Slide Six",
+    active: false,
+    img: "sw6.png",
+  },
+  {
     name: "Closing - Slide One",
     active: false,
     innerHtml: `<iframe width="100%" height="100%" class="iframe"
