@@ -1,1 +1,2 @@
-<img [src]="'assets/slide' + index + '.png'" alt="{{slide.name}}" class="slide">
+<img *ngIf="slide.img" [src]="'assets/' + slide.img" alt="{{slide.name}}" class="slideImg">
+<div #innerHtml *ngIf="slide.innerHtml" class="slideInnerHtml"></div>

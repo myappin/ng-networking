@@ -8,4 +8,6 @@
 export interface ISlide {
   name: string;
   active: boolean;
+  img?: string;
+  innerHtml?: string;
 }

@@ -8,71 +8,134 @@ import { ISlide } from "../../interface/slide.interface";
 
 export const slides: ISlide[] = [
   {
-    name: "Slide One",
+    name: "KeyNote - Slide One",
     active: false,
+    img: "gdd1.png",
   },
   {
-    name: "Slide Two",
+    name: "KeyNote - Slide Two",
     active: false,
+    img: "gdd2.png",
   },
   {
-    name: "Slide Three",
+    name: "KeyNote - Slide Three",
     active: false,
+    img: "gdd3.png",
   },
   {
-    name: "Slide Four",
+    name: "KeyNote - Slide Four",
     active: false,
+    img: "gdd4.png",
   },
   {
-    name: "Slide Five",
+    name: "KeyNote - Slide Five",
     active: false,
+    img: "gdd5.png",
   },
   {
-    name: "Slide Six",
+    name: "KeyNote - Slide Six",
     active: false,
+    img: "gdd6.png",
   },
   {
-    name: "Slide Seven",
+    name: "NG - Slide One",
     active: false,
+    img: "slide1.png",
   },
   {
-    name: "Slide Eight",
+    name: "NG - Slide Two",
     active: false,
+    img: "slide2.png",
   },
   {
-    name: "Slide Nine",
+    name: "NG - Slide Three",
     active: false,
+    img: "slide3.png",
   },
   {
-    name: "Slide Ten",
+    name: "NG - Slide Four",
     active: false,
+    img: "slide4.png",
   },
   {
-    name: "Slide Eleven",
+    name: "NG - Slide Five",
     active: false,
+    img: "slide5.png",
   },
   {
-    name: "Slide Twelve",
+    name: "NG - Slide Six",
     active: false,
+    img: "slide6.png",
   },
   {
-    name: "Slide Thirteen",
+    name: "NG - Slide Seven",
     active: false,
+    img: "slide7.png",
   },
   {
-    name: "Slide Fourteen",
+    name: "NG - Slide Eight",
     active: false,
+    img: "slide8.png",
   },
   {
-    name: "Slide Fifteen",
+    name: "NG - Slide Nine",
     active: false,
+    img: "slide9.png",
   },
   {
-    name: "Slide Sixteen",
+    name: "NG - Slide Ten",
     active: false,
+    img: "slide10.png",
   },
   {
-    name: "Slide Seventeen",
+    name: "NG - Slide Eleven",
     active: false,
+    img: "slide11.png",
+  },
+  {
+    name: "NG - Slide Twelve",
+    active: false,
+    img: "slide12.png",
+  },
+  {
+    name: "NG - Slide Thirteen",
+    active: false,
+    img: "slide13.png",
+  },
+  {
+    name: "NG - Slide Fourteen",
+    active: false,
+    img: "slide14.png",
+  },
+  {
+    name: "NG - Slide Fifteen",
+    active: false,
+    img: "slide15.png",
+  },
+  {
+    name: "NG - Slide Sixteen",
+    active: false,
+    img: "slide16.png",
+  },
+  {
+    name: "NG - Slide Seventeen",
+    active: false,
+    img: "slide17.png",
+  },
+  {
+    name: "PWA - Slide One",
+    active: false,
+    innerHtml: `<iframe width="100%" height="100%" class="iframe"
+src="https://www.youtube.com/embed/eodArdGRIVQ?rel=0&amp;showinfo=0&amp;start=1"
+frameborder="0" allowfullscreen></iframe>
+`,
+  },
+  {
+    name: "Closing - Slide One",
+    active: false,
+    innerHtml: `<iframe width="100%" height="100%" class="iframe"
+src="https://www.youtube.com/embed/ZgaQn9coYfU?rel=0&amp;showinfo=0&amp;start=1"
+frameborder="0" allowfullscreen></iframe>
+`,
   },
 ];
