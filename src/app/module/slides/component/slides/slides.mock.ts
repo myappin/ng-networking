@@ -141,4 +141,9 @@ src="https://www.youtube.com/embed/ZgaQn9coYfU?rel=0&amp;showinfo=0&amp;start=1&
 frameborder="0" allowfullscreen></iframe>
 `,
   },
+  {
+    name: "Closing - Slide Two",
+    active: false,
+    img: "gdd1.png",
+  },
 ];
