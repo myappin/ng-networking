@@ -167,7 +167,7 @@ frameborder="0" allowfullscreen></iframe>
     name: "Closing - Slide One",
     active: false,
     innerHtml: `<iframe width="100%" height="100%" class="iframe"
-src="https://www.youtube.com/embed/ZgaQn9coYfU?rel=0&amp;showinfo=0&amp;start=1&amp;autoplay=1"
+src="https://www.youtube.com/embed/ZgaQn9coYfU?rel=0&amp;showinfo=0&amp;start=283&amp;autoplay=1"
 frameborder="0" allowfullscreen></iframe>
 `,
   },
