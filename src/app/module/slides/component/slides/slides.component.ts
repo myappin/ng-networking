@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { slides } from "./slides.mock";
 import { Router, ActivatedRoute } from "@angular/router";
 import { trigger, transition, useAnimation } from "@angular/animations";
@@ -17,10 +17,10 @@ import {
   styleUrls: ["./slides.component.css"],
   animations: [
     trigger("active", [
-      transition("* => backward", [
+      transition("* => backward, * => bw", [
         useAnimation(slidesAnimationBackward)
       ]),
-      transition("* => forward", [
+      transition("* => forward, * => fw", [
         useAnimation(slidesAnimationForward)
       ]),
     ]),
@@ -43,27 +43,33 @@ import {
   ],
 })
 export class SlidesComponent implements OnDestroy {
-
   public slides = slides;
 
   public currentSlide = 0;
 
   public previousSlide = -1;
 
-  public movement: "forward" | "backward" = null;
+  public movement: "forward" | "fw" | "backward" | "bw" = null;
 
   private _subscriptions: any = [];
 
   public constructor(
-    private _changeDetector: ChangeDetectorRef,
     private _router: Router,
     private _route: ActivatedRoute
   ) {
     this._subscriptions.push(_route.params.subscribe((params: any) => {
-      if (!params["num"]) {
+      const slideNumber = parseInt(params.num, 10);
+
+      if (
+        !slideNumber ||
+        isNaN(slideNumber) ||
+        slideNumber < 1
+      ) {
         this._router.navigate(["/slides", 1]);
+      } else if (slideNumber > slides.length) {
+        this._router.navigate(["/slides", slides.length]);
       } else {
-        this.currentSlide = params["num"] - 1;
+        this.currentSlide = slideNumber - 1;
       }
     }));
 
@@ -99,17 +105,7 @@ export class SlidesComponent implements OnDestroy {
     }
   }
 
-  public animationDone(e: any): void {
-    this.movement = null;
-
-    this._changeDetector.markForCheck();
-}
-
   public onNext(): void {
-    if (this.movement !== null) {
-      return;
-    }
-
     this.previousSlide = this.currentSlide;
 
     if (++this.currentSlide > this.slides.length - 1) {
@@ -122,10 +118,6 @@ export class SlidesComponent implements OnDestroy {
   }
 
   public onPrev(): void {
-    if (this.movement !== null) {
-      return;
-    }
-
     this.previousSlide = this.currentSlide;
 
     if (--this.currentSlide < 0) {
@@ -142,8 +134,18 @@ export class SlidesComponent implements OnDestroy {
   }
 
   private _setMovement(): void {
-    this.movement = (this.previousSlide > this.currentSlide) ? "backward" : "forward";
-
-    this._changeDetector.detectChanges();
+    if (this.previousSlide > this.currentSlide) {
+      if (this.movement !== "backward") {
+        this.movement = "backward";
+      } else {
+        this.movement = "bw";
+      }
+    } else {
+        if (this.movement !== "forward") {
+          this.movement = "forward";
+        } else {
+          this.movement = "fw";
+        }
+    }
   }
 }
